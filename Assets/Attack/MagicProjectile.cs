@@ -4,13 +4,14 @@ public class MagicProjectile : MonoBehaviour
 {
     public float speed = 10f;
     public float lifetime = 3f;
+    public GameObject explosionPrefab;  // Reference to the explosion effect prefab
 
     private Vector3 direction;
 
     public void Initialize(Vector3 shootDirection)
     {
         direction = shootDirection.normalized;
-        Destroy(gameObject, lifetime); // Destroy after a few seconds
+        Destroy(gameObject, lifetime);
     }
 
     void Update()
@@ -20,7 +21,12 @@ public class MagicProjectile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hit: " + other.gameObject.name);
-        Destroy(gameObject); // Destroy on impact
+        // Instantiate the explosion effect at the projectile's position
+        if (explosionPrefab != null)
+        {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        }
+
+        Destroy(gameObject);
     }
 }
