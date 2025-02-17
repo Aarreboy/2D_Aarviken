@@ -4,7 +4,7 @@ public class MagicProjectile : MonoBehaviour
 {
     public float speed = 10f;
     public float lifetime = 3f;
-    public GameObject explosionPrefab;  // Reference to the explosion effect prefab
+    [SerializeField] ExplosionManager explosionManager;  // Reference to the explosion effect prefab
 
     private Vector3 direction;
 
@@ -22,10 +22,7 @@ public class MagicProjectile : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // Instantiate the explosion effect at the projectile's position
-        if (explosionPrefab != null)
-        {
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-        }
+        explosionManager.TriggerParticles1(transform.position);
 
         Destroy(gameObject);
     }
