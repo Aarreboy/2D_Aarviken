@@ -16,7 +16,15 @@ public class MagicAttack : MonoBehaviour
 
     void Shoot()
     {
-        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-        projectile.GetComponent<MagicProjectile>().Initialize(transform.forward);
+
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+
+        // Use firePoint's forward direction
+        projectile.GetComponent<MagicProjectile>().Initialize(firePoint.transform.forward);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
     }
 }
