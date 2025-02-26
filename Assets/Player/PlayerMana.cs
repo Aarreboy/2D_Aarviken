@@ -49,8 +49,6 @@ public class PlayerMana : MonoBehaviour
         }
     }
 
-    // Regenerate mana over time
-    //private float manaRegenBuffer = 0f;  // Stores decimal regeneration values
 
     void RegenerateMana()
     {
