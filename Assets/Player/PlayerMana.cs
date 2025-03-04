@@ -30,8 +30,6 @@ public class PlayerMana : MonoBehaviour
         {
             manaBar.value = currentMana;
         }
-
-        Debug.Log("Current Mana: " + currentMana);
     }
 
 

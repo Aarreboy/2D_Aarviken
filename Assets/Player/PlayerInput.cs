@@ -10,6 +10,14 @@ public class PlayerInput : Brain
     public KeyCode leftwards = KeyCode.A;
     public KeyCode primary = KeyCode.Mouse0;
     public float spin_speed = 90;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     public override void UpdateCommands()
     {
         Movement();
