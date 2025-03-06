@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7716193672214696128}
+  - component: {fileID: 6548108400559725699}
   m_Layer: 0
   m_Name: InGameCamera
   m_TagString: Untagged
@@ -33,6 +34,21 @@ Transform:
   - {fileID: 6144760540318033931}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &6548108400559725699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167564665165512340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ddacca8a1dbb0343b31d6c24ab078c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_obscure_camera: {fileID: 3835396125599683576}
+  m_obscure_texture: {fileID: 8400000, guid: b159269b3e8a3374aaae324c8391b135, type: 2}
+  m_field_of_view: 120
 --- !u!1 &1739458440546091553
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +250,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

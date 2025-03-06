@@ -29,9 +29,5 @@ public class MagicAttack : MonoBehaviour
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
             projectile.GetComponent<MagicProjectile>().Initialize(firePoint.forward);
         }
-        else
-        {
-            Debug.Log("Not enough mana to attack.");
-        }
     }
 }
