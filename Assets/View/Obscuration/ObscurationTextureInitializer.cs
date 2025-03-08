@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public class ViewFixer : MonoBehaviour
+/// <summary>
+/// Sets the obscuration texture as a global shader texture and adepts it to the screen resolution.
+/// </summary>
+public class ObscurationTextureInitializer : MonoBehaviour
 {
     [SerializeField] Camera m_obscure_camera;
     [SerializeField] RenderTexture m_obscure_texture;
@@ -11,7 +14,7 @@ public class ViewFixer : MonoBehaviour
     private void Awake()
     {
         m_obscure_camera.targetTexture = m_obscure_texture;
-        UpdateRenderTexCam(m_obscure_camera, "_ViewMask");
+        UpdateRenderTexCam(m_obscure_camera, "ObscurationTexture");
     }
 
     public void UpdateRenderTexCam(Camera camera, string texture_name)
@@ -25,5 +28,10 @@ public class ViewFixer : MonoBehaviour
         t_rendertex.Create();
         camera.targetTexture = t_rendertex;
         Shader.SetGlobalTexture(texture_name, t_rendertex);
+    }
+
+    private void OnDestroy()
+    {
+        UpdateRenderTexCam(m_obscure_camera, "ObscurationTexture");
     }
 }
