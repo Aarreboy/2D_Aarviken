@@ -1,30 +1,35 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class MagicProjectile : MonoBehaviour
+public class MagicProjectile : Attackable
 {
     public float speed = 10f;
     public float lifetime = 3f;
+    public float damage = 25;
     [SerializeField] ExplosionManager explosionManager;  // Reference to the explosion effect prefab
-
-    private Vector3 direction;
+    [SerializeField] Rigidbody physics;
 
     public void Initialize(Vector3 shootDirection)
     {
         transform.rotation = Quaternion.LookRotation(shootDirection, Vector3.up);
-        direction = shootDirection.normalized;
+        physics.linearVelocity = transform.forward * speed;
         Destroy(gameObject, lifetime);
     }
 
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        transform.position += direction * speed * Time.deltaTime;
+        explosionManager.TriggerParticles1(transform.position);
+
+        collision.collider?.GetComponent<Attackable>()?.Hit(damage);
+
     }
 
     void OnTriggerEnter(Collider other)
     {
         // Instantiate the explosion effect at the projectile's position
         explosionManager.TriggerParticles1(transform.position);
-
-        Destroy(gameObject);
+        
+        other?.GetComponent<Attackable>()?.Hit(damage);
+        OnDeath();
     }
 }

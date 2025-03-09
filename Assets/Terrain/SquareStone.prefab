@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4527003869613810753}
   - component: {fileID: -6306392261130395553}
   - component: {fileID: -6652143338254129025}
+  - component: {fileID: -4061193320055900899}
   m_Layer: 0
   m_Name: SquareStone
   m_TagString: Untagged
@@ -180,6 +181,19 @@ MonoBehaviour:
       type: {class: ShadowShape2DProvider_SpriteRenderer, ns: UnityEngine.Rendering.Universal,
         asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
+--- !u!114 &-4061193320055900899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8054443840345062358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1865ca6dae5b546b8335a59c7efde6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1001 &9151659825962778560
 PrefabInstance:
   m_ObjectHideFlags: 0

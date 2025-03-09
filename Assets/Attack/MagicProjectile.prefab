@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6605450154338676341}
-  - component: {fileID: 6153261784374381181}
   - component: {fileID: 4928339007806802470}
+  - component: {fileID: 6153261784374381181}
   - component: {fileID: 8379783605135931049}
   m_Layer: 0
   m_Name: MagicProjectile
@@ -35,6 +35,24 @@ Transform:
   - {fileID: 6286194621377440957}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4928339007806802470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2802369097356339076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9707fa65f5c901640a7126abc650b1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  speed: 10
+  lifetime: 3
+  damage: 25
+  explosionManager: {fileID: 11400000, guid: 1194884b35a4f5a43b34b813e9c7437e, type: 2}
+  physics: {fileID: 6153261784374381181}
 --- !u!54 &6153261784374381181
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -60,23 +78,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &4928339007806802470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2802369097356339076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9707fa65f5c901640a7126abc650b1e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  lifetime: 3
-  explosionManager: {fileID: 11400000, guid: 1194884b35a4f5a43b34b813e9c7437e, type: 2}
+  m_Constraints: 116
+  m_CollisionDetection: 2
 --- !u!135 &8379783605135931049
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -84,7 +87,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2802369097356339076}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: d677bb0e988faaf438ee4d38ec365079, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -92,7 +95,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
