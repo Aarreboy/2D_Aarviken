@@ -23,4 +23,9 @@ public abstract class Brain : MonoBehaviour
     {
 
     }
+
+    public virtual void OnDamaged(float damage)
+    {
+
+    }
 }

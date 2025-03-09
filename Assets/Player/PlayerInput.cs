@@ -9,11 +9,14 @@ public class PlayerInput : Brain
     public KeyCode primary = KeyCode.Mouse0;
     public float spin_speed = 90;
 
+    public PlayerHealth healthBar;
+
     protected override void Awake()
     {
         base.Awake();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        healthBar = GetComponent<PlayerHealth>();
     }
 
     public override void UpdateCommands()
@@ -49,5 +52,10 @@ public class PlayerInput : Brain
     void UpdateActions()
     {
         commands.primary = Input.GetKey(primary);
+    }
+
+    public override void OnDamaged(float damage)
+    {
+        healthBar.UpdateHealthBar();
     }
 }

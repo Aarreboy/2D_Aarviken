@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Attackable : MonoBehaviour
 {
-    [SerializeField]protected float maxHealth = 100;
+    [SerializeField] protected float maxHealth = 100;
     protected float currentHealth;  // "protected" så att ärvande klasser kan komma åt det
-    
-    public virtual void Start()
+
+    private void Awake()
     {
         currentHealth = maxHealth;
     }

@@ -7,9 +7,10 @@ public class Pawn : Attackable
     public Rigidbody m_physics;
     public float m_speed;
 
-    public override void Start()
+    public override void TakeDamage(float damage)
     {
-        base.Start();
+        base.TakeDamage(damage);
+        m_brain.OnDamaged(damage);
     }
 
 }

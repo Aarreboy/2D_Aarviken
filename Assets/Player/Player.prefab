@@ -434,6 +434,7 @@ MonoBehaviour:
   leftwards: 97
   primary: 323
   spin_speed: 90
+  healthBar: {fileID: 0}
 --- !u!114 &5537955408779167045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,7 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c756cfca6455fd042a949d12fe3e65d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 2802369097356339076, guid: 8bb4c7b4647bc3a409f31b582a0d6861,
+  projectilePrefab: {fileID: 2802369097356339076, guid: d21942a9dc1a0dd4695244501aa631ec,
     type: 3}
   firePoint: {fileID: 5861515061083430261}
   manaCost: 10
@@ -479,8 +480,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25835ca4e276db74fb6d21738b131a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
   healthBar: {fileID: 5920237842833525555}
 --- !u!1001 &2770932661659570762
 PrefabInstance:

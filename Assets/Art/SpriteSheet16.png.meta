@@ -127,7 +127,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -149,7 +149,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -158,6 +158,28 @@ TextureImporter:
       bones: []
       spriteID: 8aeb64999e35b93428d1c78d804a0ef0
       internalID: -1212791637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet16_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f9f3c99df100a47988f6e33cb94087
+      internalID: -432745077
       vertices: []
       indices: 
       edges: []
@@ -178,6 +200,7 @@ TextureImporter:
     nameFileIdTable:
       SpriteSheet16_0: -2047108751
       SpriteSheet16_1: -1212791637
+      SpriteSheet16_2: -432745077
       SpriteSheet1_0: 1160401949
       SpriteSheet1_1: -8872377
       SpriteSheet1_2: -1071643198

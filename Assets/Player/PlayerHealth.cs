@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
     Attackable target;
     void Start()
     {
-        
+        target = GetComponent<Attackable>();
         // Make sure the health bar is set up correctly at the start
         if (healthBar != null)
         {
@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
 
        
     // Method to update the health bar
-    void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         if (healthBar != null)
         {
