@@ -13,6 +13,11 @@ public abstract class Brain : MonoBehaviour
     public Commands commands;
     protected virtual void Awake()
     {
+        ZeroCommands();
+    }
+
+    public virtual void ZeroCommands()
+    {
         commands.forwards = 0;
         commands.rightwards = 0;
         commands.primary = false;
