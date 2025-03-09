@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6153261784374381181}
   - component: {fileID: 8379783605135931049}
   m_Layer: 0
-  m_Name: MagicProjectileShock
+  m_Name: MagicProjectileArcane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
