@@ -30,7 +30,7 @@ public class Obscurer : MonoBehaviour
             triangles[i * 6 + 1] = i + halfCount;
             triangles[i * 6 + 2] = i + halfCount + 1;
             triangles[i * 6 + 3] = i;
-            triangles[i * 6 + 4] = i + halfCount;
+            triangles[i * 6 + 4] = i + halfCount + 1;
             triangles[i * 6 + 5] = i + 1;
 
         }
