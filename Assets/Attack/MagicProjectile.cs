@@ -10,6 +10,7 @@ public class MagicProjectile : MonoBehaviour
 
     public void Initialize(Vector3 shootDirection)
     {
+        transform.rotation = Quaternion.LookRotation(shootDirection, Vector3.up);
         direction = shootDirection.normalized;
         Destroy(gameObject, lifetime);
     }
