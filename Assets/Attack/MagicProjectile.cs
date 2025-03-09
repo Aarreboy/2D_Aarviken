@@ -12,6 +12,7 @@ public class MagicProjectile : Attackable
     public void Initialize(Vector3 shootDirection)
     {
         transform.rotation = Quaternion.LookRotation(shootDirection, Vector3.up);
+        explosionManager.TriggerParticles1(transform.position);
         physics.linearVelocity = transform.forward * speed;
         Destroy(gameObject, lifetime);
     }

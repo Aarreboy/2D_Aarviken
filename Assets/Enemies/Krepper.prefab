@@ -205,8 +205,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1394046910283547193, guid: 8af0a6f788944184bb9934ef3104f829,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394046910283547193, guid: 8af0a6f788944184bb9934ef3104f829,
+        type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1961367612724121506, guid: 8af0a6f788944184bb9934ef3104f829,
         type: 3}
