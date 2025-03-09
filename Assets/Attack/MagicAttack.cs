@@ -27,7 +27,7 @@ public class MagicAttack : MonoBehaviour
         if (playerMana.UseMana(manaCost))  // Check if the player has enough mana to attack
         {
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-            projectile.GetComponent<MagicProjectile>().Initialize(firePoint.forward);
+            projectile.GetComponent<Projectile>().Initialize(firePoint.forward);
         }
     }
 }

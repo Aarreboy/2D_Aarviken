@@ -21,16 +21,17 @@ public class Attackable : MonoBehaviour
         }
     }
 
-    public virtual void Hit(float damage)
+    public virtual void Hit(Hazard damage)
     {
-        TakeDamage(damage);
-        Debug.Log(gameObject.name + " was hit!");
+        TakeDamage(damage.impact);
+        TakeDamage(damage.temperature);
+        TakeDamage(damage.cut);
+        TakeDamage(damage.suffocation);
         // Lägg till effekter här (ex. blinkande sprite, ljud)
     }
 
     public virtual void OnDeath()
     {
-        Debug.Log(gameObject.name + " died!");
         Destroy(gameObject);
     }
 

@@ -44,13 +44,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2802369097356339076}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9707fa65f5c901640a7126abc650b1e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 032beba7fa4e67a41af95e2eae97b4bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  speed: 20
+  cut: 0
+  temperature: 0
+  suffocation: 0
+  impact: 20
+  push: 2000
+  speed: 10
   lifetime: 3
-  damage: 25
   explosionManager: {fileID: 11400000, guid: 1194884b35a4f5a43b34b813e9c7437e, type: 2}
   physics: {fileID: 6153261784374381181}
 --- !u!54 &6153261784374381181

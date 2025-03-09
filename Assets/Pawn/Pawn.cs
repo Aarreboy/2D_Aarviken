@@ -13,4 +13,10 @@ public class Pawn : Attackable
         m_brain.OnDamaged(damage);
     }
 
+    public override void Hit(Hazard damage)
+    {
+        base.Hit(damage);
+        m_physics.AddForce(damage.pushForce, ForceMode.Impulse);
+    }
+
 }
