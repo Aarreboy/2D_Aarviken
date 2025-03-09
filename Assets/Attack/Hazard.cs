@@ -7,6 +7,7 @@ public class Hazard : MonoBehaviour
     public float suffocation;
     public float impact;
     public float stun;
+    public float unbalance;
     [SerializeField] float push;
     [HideInInspector] public Vector3 pushForce;
 

@@ -6,6 +6,7 @@ public class Pawn : Attackable
     public Transform m_body;
     public Rigidbody m_physics;
     public float m_speed;
+    public float m_balance;
 
     float stunTime = 0;
 
