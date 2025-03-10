@@ -1,22 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public struct Commands
 {
     public sbyte forwards, rightwards;
+    public byte selected;
     public bool primary;
     public float spin;
 }
 public abstract class Brain : MonoBehaviour
 {
     public Commands commands;
-    protected PawnAttributes m_attributes;
+    protected PawnProperties m_properties;
 
-    public virtual void Initialize(PawnAttributes attributes)
+    public virtual void Initialize(PawnProperties attributes)
     {
         ZeroCommands();
-        m_attributes = attributes;
+        m_properties = attributes;
     }
 
     public virtual void ZeroCommands()

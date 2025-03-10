@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 
 [Serializable]
-public class PawnAttributes
+public class PawnProperties
 {
     public Transform m_body;
     public Rigidbody m_physics;
@@ -12,20 +13,31 @@ public class PawnAttributes
     public float stunTime = 0;
     public Tool[] tools;
     public int selectedToolIndex;
+    public Transform actionPoint;
+    public PlayerMana mana;
+    public Tool selectedTool
+    {
+        get { return tools[selectedToolIndex];}
+        private set { }
+    }
 }
 
 public class Pawn : Attackable
 {
     public Brain m_brain;
-    [SerializeField] PawnAttributes m_attributes;
+    [SerializeField] PawnProperties m_properties;
+
     PawnState currentState;
     Dictionary<PawnStateType, PawnState> m_lookUpState = new Dictionary<PawnStateType, PawnState>();
+
     protected override void Awake()
     {
         base.Awake();
-        m_brain.Initialize(m_attributes);
+
+        m_brain.Initialize(m_properties);
         currentState = new IdlePawnState();
-        currentState.Initialize(m_brain, m_attributes, m_lookUpState);
+        currentState.Initialize(m_brain, m_properties, m_lookUpState);
+        currentState.Enter();
     }
 
     public override void TakeDamage(float damage)
@@ -37,8 +49,8 @@ public class Pawn : Attackable
     public override void Hit(Hazard damage)
     {
         base.Hit(damage);
-        m_attributes.m_physics.AddForce(damage.pushForce, ForceMode.Impulse);
-        if (damage.stun > m_attributes.stunTime) m_attributes.stunTime = damage.stun;
+        m_properties.m_physics.AddForce(damage.pushForce, ForceMode.Impulse);
+        if (damage.stun > m_properties.stunTime) m_properties.stunTime = damage.stun;
     }
 
     protected virtual void Update()
@@ -78,14 +90,14 @@ public abstract class PawnState
 {
     public PawnStateType stateType;
     Brain m_brain;
-    PawnAttributes m_attributes;
+    PawnProperties m_properties;
 
     protected PawnState(){ }
 
-    public virtual void Initialize(Brain brain, PawnAttributes attributes, Dictionary<PawnStateType, PawnState> lookUpState)
+    public virtual void Initialize(Brain brain, PawnProperties attributes, Dictionary<PawnStateType, PawnState> lookUpState)
     {
         m_brain = brain;
-        m_attributes = attributes;
+        m_properties = attributes;
         lookUpState.Add(stateType, this);
     }
 
@@ -96,18 +108,26 @@ public abstract class PawnState
 
     public virtual PawnStateType Update()
     {
-        if (m_attributes.stunTime <= 0)
+        if (m_properties.stunTime <= 0)
         {
             m_brain.UpdateCommands();
-            m_attributes.m_body.localRotation *= Quaternion.AngleAxis(m_brain.commands.spin * Time.deltaTime, Vector3.up);
+            if(m_brain.commands.primary)
+            {
+                if(m_properties.mana.currentMana > m_properties.selectedTool.GetManaCost())
+                {
+                    m_properties.mana.currentMana -= m_properties.selectedTool.GetManaCost();
+                    m_properties.selectedTool.StartAction(m_properties.actionPoint);
+                }
+            }
+            m_properties.m_body.localRotation *= Quaternion.AngleAxis(m_brain.commands.spin * Time.deltaTime, Vector3.up);
         }
-        else m_attributes.stunTime -= Time.deltaTime;
+        else m_properties.stunTime -= Time.deltaTime;
         return this.stateType;
     }
 
     public virtual void FixedUpdate()
     {
-        m_attributes.m_physics.AddForce((m_attributes.m_body.forward * m_brain.commands.forwards + m_attributes.m_body.right * m_brain.commands.rightwards).normalized * m_attributes.m_speed);
+        m_properties.m_physics.AddForce((m_properties.m_body.forward * m_brain.commands.forwards + m_properties.m_body.right * m_brain.commands.rightwards).normalized * m_properties.m_speed);
     }
 
     public virtual void Exit()

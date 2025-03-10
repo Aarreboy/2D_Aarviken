@@ -2,8 +2,15 @@ using UnityEngine;
 
 public class Tool : ScriptableObject
 {
-    public PawnStateType Use()
+    [SerializeField] protected int manaCost = 0;
+
+    public virtual PawnStateType StartAction(Transform actionPoint)
     {
         return PawnStateType.Idle;
+    }
+
+    public float GetManaCost()
+    {
+        return manaCost;
     }
 }
