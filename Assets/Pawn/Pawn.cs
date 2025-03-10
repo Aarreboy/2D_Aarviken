@@ -10,6 +10,8 @@ public class PawnAttributes
     public float m_speed;
     public float m_balance;
     public float stunTime = 0;
+    public Tool[] tools;
+    public int selectedToolIndex;
 }
 
 public class Pawn : Attackable
