@@ -5,7 +5,7 @@ public class Attackable : MonoBehaviour
     [SerializeField] protected float maxHealth = 100;
     protected float currentHealth;  // "protected" så att ärvande klasser kan komma åt det
 
-    private void Awake()
+    protected virtual void Awake()
     {
         currentHealth = maxHealth;
     }

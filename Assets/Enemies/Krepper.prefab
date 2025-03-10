@@ -148,6 +148,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8062620334841896332, guid: 8af0a6f788944184bb9934ef3104f829,
+        type: 3}
+      propertyPath: m_brain
+      value: 
+      objectReference: {fileID: -6589459832350859991}
     - target: {fileID: 131668235419454613, guid: 8af0a6f788944184bb9934ef3104f829,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -228,7 +233,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1394046910283547193, guid: 8af0a6f788944184bb9934ef3104f829,
         type: 3}
-      insertIndex: -1
+      insertIndex: 2
       addedObject: {fileID: -6589459832350859991}
   m_SourcePrefab: {fileID: 100100000, guid: 8af0a6f788944184bb9934ef3104f829, type: 3}
 --- !u!4 &7008650057701286391 stripped

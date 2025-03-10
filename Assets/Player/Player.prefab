@@ -299,6 +299,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8062620334841896332, guid: 8af0a6f788944184bb9934ef3104f829,
+        type: 3}
+      propertyPath: m_brain
+      value: 
+      objectReference: {fileID: -3023525909952142684}
     - target: {fileID: 131668235419454613, guid: 8af0a6f788944184bb9934ef3104f829,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -452,7 +457,6 @@ MonoBehaviour:
   firePoint: {fileID: 5861515061083430261}
   manaCost: 10
   fireForce: 10
-  explosionManager: {fileID: 11400000, guid: 1194884b35a4f5a43b34b813e9c7437e, type: 2}
 --- !u!114 &472207763294381512
 MonoBehaviour:
   m_ObjectHideFlags: 0

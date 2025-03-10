@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Pawn : Attackable
@@ -8,7 +9,18 @@ public class Pawn : Attackable
     public float m_speed;
     public float m_balance;
 
-    float stunTime = 0;
+    PawnState currentState;
+
+    Dictionary<PawnStateType, PawnState> m_lookUpState = new Dictionary<PawnStateType, PawnState>();
+
+    public float stunTime = 0;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        currentState = new IdlePawnState();
+        currentState.Initialize(this, m_lookUpState);
+    }
 
     public override void TakeDamage(float damage)
     {
@@ -20,25 +32,78 @@ public class Pawn : Attackable
     {
         base.Hit(damage);
         m_physics.AddForce(damage.pushForce, ForceMode.Impulse);
-        if(damage.stun > stunTime) stunTime = damage.stun;
+        if (damage.stun > stunTime) stunTime = damage.stun;
     }
 
     protected virtual void Update()
     {
         m_brain.ZeroCommands();
 
-        if (stunTime <= 0)
+        while(true)
         {
-            m_brain.UpdateCommands();
-            m_body.localRotation *= Quaternion.AngleAxis(m_brain.commands.spin * Time.deltaTime, Vector3.up);
+            PawnStateType nextState = currentState.Update();
+            if (nextState == currentState.stateType) break;
+            
+            currentState.Exit();
+            currentState = m_lookUpState[nextState];
+            currentState.Enter();
         }
-        else stunTime -= Time.deltaTime;
-
     }
 
     protected virtual void FixedUpdate()
     {
-        m_physics.AddForce((m_body.forward * m_brain.commands.forwards + m_body.right * m_brain.commands.rightwards).normalized * m_speed);
+        currentState.FixedUpdate();
     }
 
+}
+
+
+public enum PawnStateType
+{
+    Idle,
+    Prepare,
+    Attack,
+    Defend,
+    Run,
+    Interact,
+}
+
+public abstract class PawnState
+{
+    public PawnStateType stateType;
+    Pawn m_user;
+
+    protected PawnState(){ }
+
+    public virtual void Initialize(Pawn user, Dictionary<PawnStateType, PawnState> lookUpState)
+    {
+        m_user = user;
+        lookUpState.Add(stateType, this);
+    }
+
+    public virtual void Enter()
+    {
+
+    }
+
+    public virtual PawnStateType Update()
+    {
+        if (m_user.stunTime <= 0)
+        {
+            m_user.m_brain.UpdateCommands();
+            m_user.m_body.localRotation *= Quaternion.AngleAxis(m_user.m_brain.commands.spin * Time.deltaTime, Vector3.up);
+        }
+        else m_user.stunTime -= Time.deltaTime;
+        return this.stateType;
+    }
+
+    public virtual void FixedUpdate()
+    {
+        m_user.m_physics.AddForce((m_user.m_body.forward * m_user.m_brain.commands.forwards + m_user.m_body.right * m_user.m_brain.commands.rightwards).normalized * m_user.m_speed);
+    }
+
+    public virtual void Exit()
+    {
+
+    }
 }
