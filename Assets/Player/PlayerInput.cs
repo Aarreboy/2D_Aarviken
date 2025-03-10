@@ -52,13 +52,13 @@ public class PlayerInput : Brain
     {
         commands.primary = Input.GetKeyDown(primary);
 
-        if (Input.GetKeyDown(KeyCode.Alpha1)) commands.selected = 1;
-        if (Input.GetKeyDown(KeyCode.Alpha2)) commands.selected = 2;
-        if (Input.GetKeyDown(KeyCode.Alpha3)) commands.selected = 3;
-        if (Input.GetKeyDown(KeyCode.Alpha4)) commands.selected = 4;
-        if (Input.GetKeyDown(KeyCode.Alpha5)) commands.selected = 5;
+        if (Input.GetKeyDown(KeyCode.Alpha1)) commands.selected = 0;
+        if (Input.GetKeyDown(KeyCode.Alpha2)) commands.selected = 1;
+        if (Input.GetKeyDown(KeyCode.Alpha3)) commands.selected = 2;
+        if (Input.GetKeyDown(KeyCode.Alpha4)) commands.selected = 3;
+        if (Input.GetKeyDown(KeyCode.Alpha5)) commands.selected = 4;
 
-        if ((byte)m_properties.tools.Length - 1 > commands.selected) commands.selected = (byte)(m_properties.tools.Length - 1);
+        if ((byte)(m_properties.tools.Length -1) < commands.selected) commands.selected = (byte)(m_properties.tools.Length - 1);
 
     }
 

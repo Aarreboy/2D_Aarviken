@@ -111,7 +111,8 @@ public abstract class PawnState
         if (m_properties.stunTime <= 0)
         {
             m_brain.UpdateCommands();
-            if(m_brain.commands.primary)
+            m_properties.selectedToolIndex = m_brain.commands.selected;
+            if (m_brain.commands.primary)
             {
                 if(m_properties.mana.currentMana > m_properties.selectedTool.GetManaCost())
                 {
