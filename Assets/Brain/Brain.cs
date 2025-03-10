@@ -11,9 +11,12 @@ public struct Commands
 public abstract class Brain : MonoBehaviour
 {
     public Commands commands;
-    protected virtual void Awake()
+    protected PawnAttributes m_attributes;
+
+    public virtual void Initialize(PawnAttributes attributes)
     {
         ZeroCommands();
+        m_attributes = attributes;
     }
 
     public virtual void ZeroCommands()

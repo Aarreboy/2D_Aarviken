@@ -304,6 +304,11 @@ PrefabInstance:
       propertyPath: m_brain
       value: 
       objectReference: {fileID: -3023525909952142684}
+    - target: {fileID: -8062620334841896332, guid: 8af0a6f788944184bb9934ef3104f829,
+        type: 3}
+      propertyPath: m_attributes.m_brain
+      value: 
+      objectReference: {fileID: -3023525909952142684}
     - target: {fileID: 131668235419454613, guid: 8af0a6f788944184bb9934ef3104f829,
         type: 3}
       propertyPath: m_LocalPosition.x

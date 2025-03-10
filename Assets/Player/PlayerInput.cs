@@ -11,9 +11,8 @@ public class PlayerInput : Brain
 
     public PlayerHealth healthBar;
 
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         healthBar = GetComponent<PlayerHealth>();

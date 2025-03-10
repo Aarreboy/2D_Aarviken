@@ -48,12 +48,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  m_brain: {fileID: 0}
-  m_body: {fileID: 1037558654353705226}
-  m_physics: {fileID: 459346915450934729}
-  m_speed: 3000
-  m_balance: 0
-  stunTime: 0
+  m_attributes:
+    m_brain: {fileID: 0}
+    m_body: {fileID: 1037558654353705226}
+    m_physics: {fileID: 459346915450934729}
+    m_speed: 3000
+    m_balance: 0
+    stunTime: 0
 --- !u!54 &459346915450934729
 Rigidbody:
   m_ObjectHideFlags: 0
