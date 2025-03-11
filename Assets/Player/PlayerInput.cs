@@ -7,6 +7,10 @@ public class PlayerInput : Brain
     public KeyCode rightwards = KeyCode.D;
     public KeyCode leftwards = KeyCode.A;
     public KeyCode primary = KeyCode.Mouse0;
+    public KeyCode secondary = KeyCode.Mouse1;
+    public KeyCode tertiary = KeyCode.Mouse4;
+    public KeyCode dash = KeyCode.Space;
+    public KeyCode sprint = KeyCode.LeftShift;
     public float spin_speed = 90;
 
     public PlayerHealth healthBar;
@@ -51,6 +55,14 @@ public class PlayerInput : Brain
     void UpdateActions()
     {
         commands.primary = Input.GetKeyDown(primary);
+        commands.secondary = Input.GetKeyDown(secondary);
+        commands.tertiary = Input.GetKeyDown(secondary);
+        commands.primaryHold = Input.GetKey(primary);
+        commands.secondaryHold = Input.GetKey(secondary);
+        commands.tertiaryHold = Input.GetKey(secondary);
+
+        commands.dash = Input.GetKey(dash);
+        commands.sprint = Input.GetKey(sprint);
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) commands.selected = 0;
         if (Input.GetKeyDown(KeyCode.Alpha2)) commands.selected = 1;

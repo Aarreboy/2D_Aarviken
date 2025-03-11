@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/ParticleExplosion", order = 1)]
-class ExplosionManager : ScriptableObject
+public class ExplosionManager : ScriptableObject
 {
     ParticleSystem particles1;
 

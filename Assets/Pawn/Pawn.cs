@@ -17,7 +17,7 @@ public class PawnProperties
     public PlayerMana mana;
     public Tool selectedTool
     {
-        get { return tools[selectedToolIndex];}
+        get { return tools[selectedToolIndex]; }
         private set { }
     }
 }
@@ -37,6 +37,7 @@ public class Pawn : Attackable
         m_brain.Initialize(m_properties);
         currentState = new IdlePawnState();
         currentState.Initialize(m_brain, m_properties, m_lookUpState);
+        new SprintPawnState().Initialize(m_brain, m_properties, m_lookUpState);
         currentState.Enter();
     }
 
@@ -55,13 +56,13 @@ public class Pawn : Attackable
 
     protected virtual void Update()
     {
-        m_brain.ZeroCommands();
+        m_brain.UpdateCommands();
 
-        while(true)
+        while (true)
         {
             PawnStateType nextState = currentState.Update();
             if (nextState == currentState.stateType) break;
-            
+
             currentState.Exit();
             currentState = m_lookUpState[nextState];
             currentState.Enter();
@@ -82,17 +83,17 @@ public enum PawnStateType
     Prepare,
     Attack,
     Defend,
-    Run,
+    Sprint,
     Interact,
 }
 
 public abstract class PawnState
 {
     public PawnStateType stateType;
-    Brain m_brain;
-    PawnProperties m_properties;
+    protected Brain m_brain;
+    protected PawnProperties m_properties;
 
-    protected PawnState(){ }
+    protected PawnState() { }
 
     public virtual void Initialize(Brain brain, PawnProperties attributes, Dictionary<PawnStateType, PawnState> lookUpState)
     {
@@ -108,21 +109,16 @@ public abstract class PawnState
 
     public virtual PawnStateType Update()
     {
-        if (m_properties.stunTime <= 0)
+        m_properties.selectedToolIndex = m_brain.commands.selected;
+        if (m_brain.commands.primary)
         {
-            m_brain.UpdateCommands();
-            m_properties.selectedToolIndex = m_brain.commands.selected;
-            if (m_brain.commands.primary)
+            if (m_properties.mana.currentMana > m_properties.selectedTool.GetManaCost())
             {
-                if(m_properties.mana.currentMana > m_properties.selectedTool.GetManaCost())
-                {
-                    m_properties.mana.currentMana -= m_properties.selectedTool.GetManaCost();
-                    m_properties.selectedTool.StartAction(m_properties.actionPoint);
-                }
+                m_properties.mana.currentMana -= m_properties.selectedTool.GetManaCost();
+                m_properties.selectedTool.StartAction(m_properties.actionPoint);
             }
-            m_properties.m_body.localRotation *= Quaternion.AngleAxis(m_brain.commands.spin * Time.deltaTime, Vector3.up);
         }
-        else m_properties.stunTime -= Time.deltaTime;
+        m_properties.m_body.localRotation *= Quaternion.AngleAxis(m_brain.commands.spin * Time.deltaTime, Vector3.up);
         return this.stateType;
     }
 
