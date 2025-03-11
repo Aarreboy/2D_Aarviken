@@ -1,63 +1,22 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Contains important properties of the pawn, which can be passed around as a reference together.
+/// A "living" game object. Needs a brain to function, can carry and use tools. Create a prefab variant from the prefab "Pawn" to get started on a new pawn!
 /// </summary>
-[Serializable]
-public class PawnProperties
-{
-    /// <summary>
-    /// The part of the pawn that spins, check its forward vector to know which direction it faces.
-    /// </summary>
-    public Transform m_body;
-
-    /// <summary>
-    /// The pawn's rigid body.
-    /// </summary>
-    public Rigidbody m_physics;
-
-    /// <summary>
-    /// The pawn's movement acceleration (in regards to physics).
-    /// </summary>
-    public float m_speed;
-
-    /// <summary>
-    /// Should maybe be kept elsewhere. If this runs out, the pawn will be toppled.
-    /// </summary>
-    public float m_balance;
-
-    /// <summary>
-    /// Should maybe be kept elsewhere. A resource spent to cast spells.
-    /// </summary>
-    public PlayerMana mana;
-
-    /// <summary>
-    /// The readied tools for the pawn, can be 5.
-    /// </summary>
-    public Tool[] tools;
-    public int selectedToolIndex;
-    public Tool selectedTool
-    {
-        get { return tools[selectedToolIndex]; }
-        private set { }
-    }
-
-    /// <summary>
-    /// Used by tools to know where to act.
-    /// </summary>
-    public Transform actionPoint;
-
-
-}
-
 public class Pawn : Attackable
 {
     public Brain m_brain;
     [SerializeField] PawnProperties m_properties;
 
+    /// <summary>
+    /// This will call its Updated() in Update(). Can result in a change then, or for example when this pawn takes damage.
+    /// </summary>
     PawnState currentState;
+
+    /// <summary>
+    /// Contains all the pawn's states. Pass the wanted state type to get a reference to a specific state.
+    /// </summary>
     Dictionary<PawnStateType, PawnState> m_lookUpState = new Dictionary<PawnStateType, PawnState>();
 
     protected override void Awake()
@@ -65,24 +24,15 @@ public class Pawn : Attackable
         base.Awake();
 
         m_brain.Initialize(m_properties);
-        currentState = new IdlePawnState();
-        currentState.Initialize(m_brain, m_properties, m_lookUpState);
+
+        // Add the states
+        new IdlePawnState().Initialize(m_brain, m_properties, m_lookUpState);
         new SprintPawnState().Initialize(m_brain, m_properties, m_lookUpState);
         new ToppledPawnState().Initialize(m_brain, m_properties, m_lookUpState);
+
+        // Set the initial state
+        currentState = m_lookUpState[PawnStateType.Idle];
         currentState.Enter();
-    }
-
-    public override void TakeDamage(float damage)
-    {
-        base.TakeDamage(damage);
-        SetState(PawnStateType.Toppled);
-    }
-
-    public override void Hit(Hazard damage)
-    {
-        base.Hit(damage);
-        m_brain.OnDamaged(damage);
-        m_properties.m_physics.AddForce(damage.pushForce, ForceMode.Impulse);
     }
 
     protected virtual void Update()
@@ -110,21 +60,24 @@ public class Pawn : Attackable
         currentState.FixedUpdate();
     }
 
-}
+    public override void TakeDamage(float damage)
+    {
+        base.TakeDamage(damage);
 
+        //Now the pawn always becomes toppled by damage...
+        SetState(PawnStateType.Toppled);
+    }
 
-/// <summary>
-/// A pawn is a state machine that can have these state types.
-/// </summary>
-public enum PawnStateType
-{
-    Idle,
-    Prepare,
-    Attack,
-    Defend,
-    Sprint,
-    Interact,
-    Toppled,
+    public override void Hit(Hazard damage)
+    {
+        base.Hit(damage);
+
+        // alert the brain of the hazard
+        m_brain.OnDamaged(damage);
+
+        // add the push force from the hazard
+        m_properties.m_physics.AddForce(damage.pushForce, ForceMode.Impulse);
+    }
 }
 
 public abstract class PawnState
