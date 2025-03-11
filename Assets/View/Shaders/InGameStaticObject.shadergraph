@@ -122,6 +122,12 @@
         },
         {
             "m_Id": "42e5a5a3432c41d789d7371ba861c42b"
+        },
+        {
+            "m_Id": "17a3d864e6e249c493758f2ae8e18d42"
+        },
+        {
+            "m_Id": "72e7fd4693614ae4b99b9ce5a15a3e36"
         }
     ],
     "m_Edges": [
@@ -784,8 +790,8 @@
     "m_Theme": 0,
     "m_Position": {
         "serializedVersion": "2",
-        "x": -651.0,
-        "y": -1233.0,
+        "x": -676.0,
+        "y": -1262.0,
         "width": 214.0,
         "height": 100.0
     },
@@ -814,6 +820,26 @@
     },
     "m_Labels": [],
     "m_Channel": 0
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
+    "m_ObjectId": "17a3d864e6e249c493758f2ae8e18d42",
+    "m_Title": "Hide light",
+    "m_Content": "Don't show light in obscured areas",
+    "m_TextSize": 0,
+    "m_Theme": 0,
+    "m_Position": {
+        "serializedVersion": "2",
+        "x": -464.0,
+        "y": -180.0,
+        "width": 154.0,
+        "height": 100.0
+    },
+    "m_Group": {
+        "m_Id": ""
+    }
 }
 
 {
@@ -1249,10 +1275,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -777.9999389648438,
-            "y": -197.99993896484376,
+            "x": -734.9998779296875,
+            "y": -15.999974250793457,
             "width": 129.99993896484376,
-            "height": 117.99995422363281
+            "height": 117.99996185302735
         }
     },
     "m_Slots": [
@@ -1339,10 +1365,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1002.9998779296875,
-            "y": 64.0000228881836,
-            "width": 125.99993896484375,
-            "height": 76.99994659423828
+            "x": -1004.9999389648438,
+            "y": -229.99998474121095,
+            "width": 126.0,
+            "height": 77.0
         }
     },
     "m_Slots": [
@@ -1375,13 +1401,13 @@
     "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
     "m_ObjectId": "42e5a5a3432c41d789d7371ba861c42b",
     "m_Title": "Custom Lighting",
-    "m_Content": "",
+    "m_Content": "The light tex index refers to a light's \"Blend Style\"",
     "m_TextSize": 0,
     "m_Theme": 0,
     "m_Position": {
         "serializedVersion": "2",
-        "x": 17.0,
-        "y": -772.0,
+        "x": -1324.0,
+        "y": -697.0,
         "width": 214.0,
         "height": 100.0
     },
@@ -1780,10 +1806,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -705.7530517578125,
-            "y": 120.24687194824219,
-            "width": 208.0,
-            "height": 302.0
+            "x": -712.9999389648438,
+            "y": -248.0,
+            "width": 130.0,
+            "height": 118.00001525878906
         }
     },
     "m_Slots": [
@@ -2017,6 +2043,26 @@
         "e31": 0.0,
         "e32": 0.0,
         "e33": 1.0
+    }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
+    "m_ObjectId": "72e7fd4693614ae4b99b9ce5a15a3e36",
+    "m_Title": "Normal maps",
+    "m_Content": "Not until we use them!",
+    "m_TextSize": 0,
+    "m_Theme": 0,
+    "m_Position": {
+        "serializedVersion": "2",
+        "x": -1056.0,
+        "y": 404.0,
+        "width": 154.0,
+        "height": 100.0
+    },
+    "m_Group": {
+        "m_Id": ""
     }
 }
 
@@ -2292,9 +2338,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -864.9999389648438,
-            "y": 39.0000114440918,
-            "width": 129.99993896484376,
+            "x": -865.0,
+            "y": -248.0,
+            "width": 130.00006103515626,
             "height": 118.00001525878906
         }
     },

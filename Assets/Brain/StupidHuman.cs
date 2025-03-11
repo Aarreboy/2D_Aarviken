@@ -28,8 +28,11 @@ public class StupidHuman : Brain
 
     void Spin()
     {
+        //This calculates whether the player is on the left or the right side of the "StupidHuman".
         Plane plane = new Plane(m_properties.m_body.right, transform.position);
         bool right = plane.GetDistanceToPoint(target.position) > 0;
+
+        //If the player is to the right, spin clockwise, else....
         if (right) commands.spin = 90;
         else commands.spin = -90;
     }

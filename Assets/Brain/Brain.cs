@@ -2,16 +2,37 @@ using UnityEngine;
 
 public struct Commands
 {
+    /// <summary>
+    /// Should only be -1, 0 and 1.
+    /// </summary>
     public sbyte forwards, rightwards;
+
+    /// <summary>
+    /// For toolbar selection.
+    /// </summary>
     public byte selected;
+    /// <summary>
+    /// Each tool can have up to three actions (more if how they react in different pawn states are counted).
+    /// Only returns true the frame it was pressed.
+    /// </summary>
     public bool primary, secondary, tertiary;
+
+    /// <summary>
+    /// Each tool can have up to three actions (more if how they react in different pawn states are counted).
+    /// </summary>
     public bool primaryHold, secondaryHold, tertiaryHold;
+
+    /// <summary>
+    /// How much the pawn should rotate.
+    /// </summary>
+    public float spin;
+
     public bool dash;
     public bool sprint;
-    public float spin;
 }
 public abstract class Brain : MonoBehaviour
 {
+    //Should maybe have this private and only send out a copy with Get so that other's can't alter something's commands.
     public Commands commands;
     protected PawnProperties m_properties;
 
@@ -26,6 +47,9 @@ public abstract class Brain : MonoBehaviour
         ZeroCommands();
     }
 
+    /// <summary>
+    /// Most commands are intended to be set every frame, and should be set to default before that.
+    /// </summary>
     public virtual void ZeroCommands()
     {
         commands.forwards = 0;
@@ -41,7 +65,11 @@ public abstract class Brain : MonoBehaviour
         commands.spin = 0;
     }
 
-    public virtual void OnDamaged(float damage)
+    /// <summary>
+    /// GUI and AI should be able to react to when the pawn is hit.
+    /// </summary>
+    /// <param name="damage"></param>
+    public virtual void OnDamaged(Hazard damage)
     {
 
     }

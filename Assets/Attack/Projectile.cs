@@ -2,24 +2,41 @@ using UnityEngine;
 
 public class Projectile : Hazard
 {
+    /// <summary>
+    /// Sets the velocity of the projectile to have this magnitude upon initialization.
+    /// </summary>
     public float speed = 10f;
+
+    /// <summary>
+    /// How long this projectile lasts.
+    /// </summary>
     public float lifetime = 3f;
-    [SerializeField] ExplosionManager explosionManager;  // Reference to the explosion effect prefab
+
+    /// <summary>
+    /// A reference to the ExplosionManager data item to use whatever explosions available.
+    /// </summary>
+    [SerializeField] ExplosionManager explosionManager;
+
     [SerializeField] Rigidbody physics;
 
-    public void Initialize(Vector3 shootDirection)
+    /// <summary>
+    /// Call this after the prefab has been created and set at the right position.
+    /// </summary>
+    /// <param name="shootDirection"></param>
+    public void Initialize()
     {
-        transform.rotation = Quaternion.LookRotation(shootDirection, Vector3.up);
         explosionManager.TriggerParticles1(transform.position);
         physics.linearVelocity = transform.forward * speed;
         Destroy(gameObject, lifetime);
     }
 
-    override protected void OnCollisionEnter(Collision collision)
+    // Add some particle effects to each collision!
+    protected override void OnCollisionEnter(Collision collision)
     {
         base.OnCollisionEnter(collision);
        explosionManager.TriggerParticles1(transform.position);
     }
 
-    override protected void OnTriggerEnter(Collider other){}
+    // This ain't no trigger collider, so won't be needing this.
+    protected override void OnTriggerEnter(Collider other){}
 }
