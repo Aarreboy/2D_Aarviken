@@ -50,11 +50,12 @@ MonoBehaviour:
   cut: 0
   temperature: 0
   suffocation: 0
-  impact: 20
-  stun: 0.5
+  impact: 15
+  stun: 0
+  unbalance: 0
   push: 2000
   pushForce: {x: 0, y: 0, z: 0}
-  speed: 10
+  speed: 15
   lifetime: 3
   explosionManager: {fileID: 11400000, guid: 1194884b35a4f5a43b34b813e9c7437e, type: 2}
   physics: {fileID: 6153261784374381181}
