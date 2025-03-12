@@ -207,11 +207,99 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet1_5
+      name: TreeBase3
       rect:
         serializedVersion: 2
         x: 0
         y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28f06d378eaf96e4cafd3e64cc504fb4
+      internalID: -919314718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeBase1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a922173cedfaae849a48b27b09ca392b
+      internalID: 90934177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeLeaves1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cdca26ef92df37408d2c261b19d3f0e
+      internalID: 2036774947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeLeaves2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 925436a3c4ffbad408639daa5ee9b417
+      internalID: -429382108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeBase2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -222,8 +310,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28f06d378eaf96e4cafd3e64cc504fb4
-      internalID: -919314718
+      spriteID: ad2c3396926d94748b106b3059810f0d
+      internalID: -1052653554
       vertices: []
       indices: 
       edges: []
@@ -247,7 +335,11 @@ TextureImporter:
       SpriteSheet1_2: -1071643198
       SpriteSheet1_3: 704415111
       SpriteSheet1_4: -1154430302
-      SpriteSheet1_5: -919314718
+      TreeBase1: 90934177
+      TreeBase2: -1052653554
+      TreeBase3: -919314718
+      TreeLeaves1: 2036774947
+      TreeLeaves2: -429382108
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
