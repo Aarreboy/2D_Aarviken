@@ -43,7 +43,7 @@ public class Hazard : MonoBehaviour
     /// <summary>
     /// Adds direct force to the target and sends them flying!
     /// </summary>
-    [SerializeField] float push;
+    [SerializeField] protected float push;
 
     /// <summary>
     /// Recalculate the push to a force vector to be used by the target that is hit.

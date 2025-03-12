@@ -32,7 +32,7 @@ public class SprintPawnState : PawnState
             if (m_properties.mana.currentMana > m_properties.selectedTool.GetManaCost())
             {
                 m_properties.mana.currentMana -= m_properties.selectedTool.GetManaCost();
-                m_properties.selectedTool.StartPrimaryAction(m_properties.actionPoint);
+                m_properties.selectedTool.StartPrimaryAction(m_properties.actionPoint, m_brain.commands.spin);
             }
         }
 

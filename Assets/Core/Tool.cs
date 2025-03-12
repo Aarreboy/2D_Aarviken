@@ -14,7 +14,7 @@ public class Tool : MonoBehaviour
     /// </summary>
     /// <param name="actionPoint"> The hand of the user, or mouth, or whatever.</param>
     /// <returns></returns>
-    public virtual PawnStateType StartPrimaryAction(Transform actionPoint)
+    public virtual PawnStateType StartPrimaryAction(Transform actionPoint, float startDirection)
     {
         return PawnStateType.Idle;
     }
@@ -38,4 +38,5 @@ public enum ToolType
 {
     ArcaneSpell,
     FireSpell,
+    MeleeWeapon,
 }

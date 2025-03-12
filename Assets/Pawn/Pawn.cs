@@ -42,7 +42,7 @@ public class Pawn : Attackable
         m_properties.tools = new Tool[m_properties.toolTypes.Length];
         for (int i = 0; i < m_properties.toolTypes.Length; i++)
         {
-            GameObject tool = Instantiate(m_properties.toolStorage.GetTool(m_properties.toolTypes[i]), transform);
+            GameObject tool = Instantiate(m_properties.toolStorage.GetTool(m_properties.toolTypes[i]), m_properties.m_body);
             m_properties.tools[i] = tool.GetComponent<Tool>();
         }
     }
@@ -134,7 +134,7 @@ public abstract class PawnState
             if (m_properties.mana.currentMana > m_properties.selectedTool.GetManaCost())
             {
                 m_properties.mana.currentMana -= m_properties.selectedTool.GetManaCost();
-                m_properties.selectedTool.StartPrimaryAction(m_properties.actionPoint);
+                m_properties.selectedTool.StartPrimaryAction(m_properties.actionPoint, m_brain.commands.spin);
             }
         }
         m_properties.m_body.localRotation *= Quaternion.AngleAxis(m_brain.commands.spin * Time.deltaTime, Vector3.up);
