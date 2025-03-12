@@ -337,7 +337,7 @@ PrefabInstance:
     - target: {fileID: -8062620334841896332, guid: 8af0a6f788944184bb9934ef3104f829,
         type: 3}
       propertyPath: m_properties.tools.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8062620334841896332, guid: 8af0a6f788944184bb9934ef3104f829,
         type: 3}
@@ -357,6 +357,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: d3991695f9222f641aa3ab57756bbd10,
         type: 2}
+    - target: {fileID: -8062620334841896332, guid: 8af0a6f788944184bb9934ef3104f829,
+        type: 3}
+      propertyPath: m_properties.toolTypes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8062620334841896332, guid: 8af0a6f788944184bb9934ef3104f829,
+        type: 3}
+      propertyPath: 'm_properties.toolTypes.Array.data[1]'
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 131668235419454613, guid: 8af0a6f788944184bb9934ef3104f829,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -487,6 +497,10 @@ MonoBehaviour:
   rightwards: 100
   leftwards: 97
   primary: 323
+  secondary: 324
+  tertiary: 327
+  dash: 32
+  sprint: 304
   spin_speed: 90
   healthBar: {fileID: 0}
 --- !u!114 &472207763294381512

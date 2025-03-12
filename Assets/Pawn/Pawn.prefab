@@ -54,11 +54,12 @@ MonoBehaviour:
     m_physics: {fileID: 459346915450934729}
     m_speed: 3000
     m_balance: 0
-    stunTime: 0
+    mana: {fileID: 0}
+    toolStorage: {fileID: 11400000, guid: 8638690c1f61dbe498d37659504be0cb, type: 2}
+    toolTypes: 
     tools: []
     selectedToolIndex: 0
     actionPoint: {fileID: 0}
-    mana: {fileID: 0}
 --- !u!54 &459346915450934729
 Rigidbody:
   m_ObjectHideFlags: 0

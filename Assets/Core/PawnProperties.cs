@@ -33,6 +33,16 @@ public class PawnProperties
     public PlayerMana mana;
 
     /// <summary>
+    /// The tool types that should be readied by the pawn, can be 5.
+    /// </summary>
+    public AllTools toolStorage;
+
+    /// <summary>
+    /// The tool types that should be readied the pawn, can be 5.
+    /// </summary>
+    public ToolType[] toolTypes;
+
+    /// <summary>
     /// The readied tools for the pawn, can be 5.
     /// </summary>
     public Tool[] tools;

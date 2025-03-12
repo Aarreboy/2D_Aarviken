@@ -25,6 +25,8 @@ public class Pawn : Attackable
 
         m_brain.Initialize(m_properties);
 
+        InitializeTools();
+
         // Add the states
         new IdlePawnState().Initialize(m_brain, m_properties, m_lookUpState);
         new SprintPawnState().Initialize(m_brain, m_properties, m_lookUpState);
@@ -33,6 +35,16 @@ public class Pawn : Attackable
         // Set the initial state
         currentState = m_lookUpState[PawnStateType.Idle];
         currentState.Enter();
+    }
+
+    void InitializeTools()
+    {
+        m_properties.tools = new Tool[m_properties.toolTypes.Length];
+        for (int i = 0; i < m_properties.toolTypes.Length; i++)
+        {
+            GameObject tool = Instantiate(m_properties.toolStorage.GetTool(m_properties.toolTypes[i]), transform);
+            m_properties.tools[i] = tool.GetComponent<Tool>();
+        }
     }
 
     protected virtual void Update()
