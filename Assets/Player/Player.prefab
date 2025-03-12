@@ -360,12 +360,17 @@ PrefabInstance:
     - target: {fileID: -8062620334841896332, guid: 8af0a6f788944184bb9934ef3104f829,
         type: 3}
       propertyPath: m_properties.toolTypes.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8062620334841896332, guid: 8af0a6f788944184bb9934ef3104f829,
         type: 3}
       propertyPath: 'm_properties.toolTypes.Array.data[1]'
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8062620334841896332, guid: 8af0a6f788944184bb9934ef3104f829,
+        type: 3}
+      propertyPath: 'm_properties.toolTypes.Array.data[2]'
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 131668235419454613, guid: 8af0a6f788944184bb9934ef3104f829,
         type: 3}

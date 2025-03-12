@@ -27,6 +27,7 @@ public class PlayerInput : Brain
 
     public override void UpdateCommands()
     {
+        Shader.SetGlobalVector("PlayerPosition", transform.position);
         base.UpdateCommands();
         Movement();
         Spin();
